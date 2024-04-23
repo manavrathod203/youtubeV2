@@ -11,7 +11,7 @@ Dataframes in csv files : positive_comments.csv , negative_comments.csv , neutra
 
 """
 import os
-import nltk
+# import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import pandas as pd
 from youtube_comment_downloader import *
