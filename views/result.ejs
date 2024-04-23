@@ -1,0 +1,171 @@
+<% include ./partials/header.ejs %>
+
+
+<!-- result------------------------------------------------------------------------------------ -->
+<div class="w-full min-h-[55vh]" id="result-container">
+  <% if(pythonScriptOutput != ""){%>
+  <!-- Comments distribution -->
+  <div class="w-full bg-white px-52 py-10 flex items-center justify-between">
+    <!-- distribution text -->
+    <div class="flex flex-col gap-4 ">
+      <div class=" flex items-center gap-4">
+        <div class="w-32 h-20 bg-zinc-300 rounded-xl"></div>
+        <h2 class="text-7xl uppercase font-bold opacity-75 tracking-tight">Total: <%= countTotal %></h2>
+      </div>
+      <div class=" flex items-center gap-4">
+        <div class="w-32 h-20 bg-[#AEE2FF] rounded-xl"></div>
+        <h2 class="text-7xl uppercase font-bold opacity-75 tracking-tight">positive: <%= countPositive %></h2>
+      </div>
+      <div class=" flex items-center gap-4">
+        <div class="w-32 h-20 bg-[#FEFF86] rounded-xl"></div>
+        <h2 class="text-7xl uppercase font-bold opacity-75 tracking-tight">neutral: <%= countNeutral %></h2>
+      </div>
+      <div class=" flex items-center gap-4">
+        <div class="w-32 h-20 bg-[#FF6969] rounded-xl"></div>
+        <h2 class="text-7xl uppercase font-bold opacity-75 tracking-tight">negative: <%= countNegative %></h2>
+      </div>
+    </div>
+    <!-- Pie chart -->
+    <div class="w-2/5">
+      <img src="/sentiment_pie_chart.png" alt="" class="w-full h-full">
+    </div>
+  </div>
+  <!-- Insights -->
+  <div class="w-full bg-zinc-900 px-52 py-16 text-white">
+    <h2 class="text-6xl font-semibold uppercase opacity-75 text-center">MAP TO YOUR NEXT VIDEO IDEA</h2>
+    <div class="mt-20">
+      <!-- topics -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-white opacity-75 px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-zinc-900 font-semibold">What your viewers want next?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#18181B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class=" rounded-xl px-7 py-10 text-2xl bg-white opacity-75 text-zinc-900 border-t-4 group-open:animate-fadeIn">
+            <%- topics %>
+          </p>
+        </details>
+      </div>
+      <!-- critisicm -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-white opacity-75 px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-zinc-900 font-semibold">What they want you to improve?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#18181B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="rounded-xl px-7 py-10 text-2xl  bg-white opacity-75 text-zinc-900 border-t-4 group-open:animate-fadeIn">
+            <%- critisism %>
+          </p>
+        </details>
+      </div>
+      <!-- QnA -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-white opacity-75 px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-zinc-900 font-semibold">What questions they asked?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#18181B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="rounded-xl px-7 py-10 text-2xl bg-white opacity-75 text-zinc-900 border-t-4 group-open:animate-fadeIn">
+            <%- qna %>
+          </p>
+        </details>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Comment tables -->
+  <div class="w-full bg-white px-52 py-16 text-zinc-900">
+    <h2 class="text-6xl font-semibold uppercase  text-center">VIEW CATEGORIZED COMMENTS</h2>
+    <div class="mt-20">
+      <!-- Positive Comments -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-zinc-900  px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-white opacity-75 font-semibold">Positive Comments</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#C5C5C6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="rounded-xl p-4 text-xl bg-white opacity-75 text-zinc-900 border-4 group-open:animate-fadeIn">
+            <%- positive_table %>
+          </div>
+        </details>
+      </div>
+      <!-- critisicm -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-zinc-900  px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-white opacity-75 font-semibold">Neutral Comments</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#C5C5C6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="rounded-xl p-4 text-xl bg-white opacity-75 text-zinc-900 border-4 group-open:animate-fadeIn">
+            <%- neutral_table %>
+          </div>
+        </details>
+      </div>
+      <!-- QnA -->
+      <div class="mb-5">
+        <details class="group">
+          <summary class="bg-zinc-900  px-7 py-5 flex items-center justify-between w-full rounded-xl cursor-pointer list-none">
+            <span class="text-5xl text-white opacity-75 font-semibold">Negative Comments</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="60" shape-rendering="geometricPrecision" stroke="#C5C5C6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="rounded-xl p-4 text-xl bg-white opacity-75 text-zinc-900 border-4 group-open:animate-fadeIn">
+            <%- negative_table %>
+          </div>
+        </details>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="w-full bg-zinc-900 px-52 py-16 text-white text-center">
+    <h2 class="text-6xl font-semibold uppercase opacity-75 text-center ">Contributions</h2>
+    <div class="flex items-center justify-between gap-8 mt-32 opacity-75">
+
+      <div class="flex items-center gap-4">
+        <div class="w-24 h-24 bg-sky-200 rounded-full"></div>
+        <h2 class="text-4xl text-white font-semibold mr-3">Manav Rathod</h2>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-24 h-24 bg-sky-200 rounded-full"></div>
+        <h2 class="text-4xl text-white font-semibold mr-3">Ankita yadav</h2>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-24 h-24 bg-sky-200 rounded-full"></div>
+        <h2 class="text-4xl text-white font-semibold mr-3">Soham Phutane</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+</div>
+
+
+
+
+<% include ./partials/footer.ejs %>

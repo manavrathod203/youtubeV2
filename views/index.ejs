@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs %>
+
+
+<div id="quote-container" class="w-full min-h-[55vh] bg-zinc-100 flex justify-center items-center">
+  <img src="https://www.linearity.io/blog/content/images/2024/01/Group-53342.png" id="quote" alt="" class="w-2/5">
+</div>
+
+
+
+<script>
+  function generateQuote(){
+    const imgSrc = ['https://www.linearity.io/blog/content/images/2024/01/Group-53342.png', 'https://www.linearity.io/blog/content/images/2024/01/Quote-1.png', 'https://www.linearity.io/blog/content/images/2024/01/Group-53343-2.png', 'https://www.linearity.io/blog/content/images/2024/01/Group-53345-1.png', 'https://www.linearity.io/blog/content/images/2024/01/Group-53346.png', 'https://www.linearity.io/blog/content/images/2024/01/Group-53348.png'];
+    random = Math.floor(Math.random() * imgSrc.length);
+    console.log(random);
+    document.querySelector("#quote").setAttribute("src", imgSrc[random]);
+  }
+  
+  generateQuote();
+  
+</script>
+
+<% include ./partials/footer.ejs %>
