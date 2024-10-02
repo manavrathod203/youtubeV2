@@ -112,29 +112,29 @@ def analyze_comments():
     num_neutral_comments = len(neutral_comments)
 
     
-    # print('\nSentiment Analysis Pie Chart:')
-    labels = ['Positive', 'Negative', 'Neutral']
-    sizes = [num_positive_comments,
-             num_negative_comments, num_neutral_comments]
-    hex_colors = ['#AEE2FF', '#FF6969', '#FEFF86']
+    # # print('\nSentiment Analysis Pie Chart:')
+    # labels = ['Positive', 'Negative', 'Neutral']
+    # sizes = [num_positive_comments,
+    #          num_negative_comments, num_neutral_comments]
+    # hex_colors = ['#AEE2FF', '#FF6969', '#FEFF86']
 
-    # Convert hexadecimal colors to RGB tuples
-    colors = [tuple(int(hex_color[i:i+2], 16) for i in (1, 3, 5)) for hex_color in hex_colors]
+    # # Convert hexadecimal colors to RGB tuples
+    # colors = [tuple(int(hex_color[i:i+2], 16) for i in (1, 3, 5)) for hex_color in hex_colors]
 
-    # Create a blank image
-    image_size = 400
-    image = Image.new("RGB", (image_size, image_size), (255, 255, 255))
-    draw = ImageDraw.Draw(image)
+    # # Create a blank image
+    # image_size = 400
+    # image = Image.new("RGB", (image_size, image_size), (255, 255, 255))
+    # draw = ImageDraw.Draw(image)
 
-    # Draw pie chart
-    start_angle = 0
-    for size, label, color in zip(sizes, labels, colors):
-        angle = 360 * size / sum(sizes)
-        draw.pieslice([(50, 50), (350, 350)], start_angle, start_angle + angle, fill=color, outline="black")
-        start_angle += angle
+    # # Draw pie chart
+    # start_angle = 0
+    # for size, label, color in zip(sizes, labels, colors):
+    #     angle = 360 * size / sum(sizes)
+    #     draw.pieslice([(50, 50), (350, 350)], start_angle, start_angle + angle, fill=color, outline="black")
+    #     start_angle += angle
 
-    # Save as PNG
-    image.save("sentiment_pie_chart.png")
+    # # Save as PNG
+    # image.save("sentiment_pie_chart.png")
 
 
     positive_df = pd.DataFrame(

@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "npm install && pip install nltk pandas Pillow youtube_comment_downloader"
+    "build": "npm install"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.20.0",
     "axios": "^1.6.7",
+    "canvas": "^2.11.2",
+    "chart.js": "^4.4.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
-    "g4f": "^1.1.0",
+    "g4f": "^1.4.3",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "openai": "^4.26.0"
